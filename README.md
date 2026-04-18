@@ -25,3 +25,12 @@ RDP is available on Kali (port 3390), so you can connect to GUI even using docke
  
 In case you need another terminal on the same running container, run the following command
 > docker exec -it **\<kali container\>** bash
+
+## Connecting Kali GUI
+In case you need to need to connect to Kali GUI: 
+1) Start **Remote Desktop Connection"
+2) Type
+> localhost:3390
+3) Login as
+> Username: kali
+> Password: KaliLinu
