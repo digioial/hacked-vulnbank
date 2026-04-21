@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog di Cucina</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+    }
+    header {
+      background: #ff7043;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .form-container, .posts {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #ff7043;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e65c2f;
+    }
+    .post {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .post:last-child {
+      border-bottom: none;
+    }
+    .post h3 {
+      margin: 0;
+      color: #333;
+    }
+    .post p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍝 Blog di Cucina</h1>
+  <p>Condividi le tue ricette preferite</p>
+</header>
+
+<div class="container">
+
+  <div class="form-container">
+    <h2>Aggiungi una nuova ricetta</h2>
+    <input type="text" id="title" placeholder="Titolo della ricetta">
+    <textarea id="ingredients" placeholder="Ingredienti"></textarea>
+    <textarea id="instructions" placeholder="Preparazione"></textarea>
+    <button onclick="addPost()">Pubblica</button>
+  </div>
+
+  <div class="posts" id="posts">
+    <h2>Ricette pubblicate</h2>
+  </div>
+
+</div>
+
+<script>
+  function addPost() {
+    const title = document.getElementById('title').value;
+    const ingredients = document.getElementById('ingredients').value;
+    const instructions = document.getElementById('instructions').value;
+
+    if (!title || !ingredients || !instructions) {
+      alert("Compila tutti i campi!");
+      return;
+    }
+
+    const postContainer = document.getElementById('posts');
+
+    const post = document.createElement('div');
+    post.className = 'post';
+
+    post.innerHTML = `
+      <h3>${title}</h3>
+      <p><strong>Ingredienti:</strong><br>${ingredients}</p>
+      <p><strong>Preparazione:</strong><br>${instructions}</p>
+    `;
+
+    postContainer.appendChild(post);
+
+    // Reset form
+    document.getElementById('title').value = '';
+    document.getElementById('ingredients').value = '';
+    document.getElementById('instructions').value = '';
+  }
+</script>
+
+</body>
+</html>
