@@ -7,11 +7,11 @@ RDP is available on Kali (port 3390), so you can connect to GUI even using docke
 > https://www.docker.com
 
 ## Installation
-1) Download **kalifullimage** from following repository.
+1) Download **kalifullimage.tar** from following repository.
 > https://drive.google.com/file/d/1hTXw6WpLuNsl9CrXQCUDGCIW72IBiPJ3/view?usp=sharing
 2) If not done before, start docker engine (eg. starting Docker Desktop)
 3) Open terminal (e.g. cmd on Windows), move to the folder containing the downloaded file **kalifullimage**, and run the following command to install the image on Docker
-> docker load -i **kalifullimage**
+> docker load -i **kalifullimage.tar**
 4) On the same terminal, run the following command to create the container starting from the image
 > docker run --tty --interactive -p 3390:3390 -p 5000:5000 --name **kalifull** **kalifullimage**
 
