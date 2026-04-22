@@ -1,0 +1,32 @@
+"function test() { const url = 'http://localhost:5000/transfer';
+    const token = localStorage.getItem('jwt_token');
+    const data = {
+        to_account: '<mio_conto>',
+        amount: '<numero>.00',
+        description: '<descrizione>'
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
+            'Accept-Language': 'en-US,en;q=0.5',
+            'Referer': 'http://localhost:5000/dashboard',
+            'Origin': 'http://localhost:5000',
+            'Connection': 'keep-alive',
+            'Cookie': `token=${token}`,
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0',
+            'Priority': 'u=0'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())  // Parse the JSON response
+    .then(result => {
+        console.log('Success:', result);  // Handle success response
+    })
+    .catch(error => {
+        console.error('Error:', error);  // Handle error
+    });
+ }; test();"
