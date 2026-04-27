@@ -141,6 +141,7 @@
         <!-- Sezione per ricerca ricetta -->
         <div class="search-section">
             <h2>Ricerca Ricetta per ID</h2>
+	    <p>Puoi cercare una ricetta anche passando il parametro id nel URL</p>
             <input type="text" id="search-id" placeholder="Inserisci ID della ricetta" oninput="searchRecipe()">
         </div>
 
@@ -220,6 +221,7 @@
         // Funzione per la ricerca delle ricette
         function searchRecipe() {
             const searchId = document.getElementById('search-id').value.trim();
+	    const test = document.getElementById('search-id');
             const searchResultContainer = document.getElementById('recipe-search-result');
             searchResultContainer.innerHTML = ''; // Pulisce il risultato precedente
 
@@ -233,7 +235,7 @@
                         <div class="recipe-id">ID: ${foundRecipe.id}</div>
                     `;
                 } else {
-                    searchResultContainer.innerHTML = '<p>Ricetta non trovata.</p>';
+                    searchResultContainer.innerHTML = `<p>Ricetta ${searchId} non trovata</p>`;
                 }
             }
         }
@@ -245,8 +247,9 @@
             console.log('Parametro ID:', recipeId);
 	
             if (recipeId) {
-                // document.getElementById('search-id').value = recipeId;
-                document.getElementById('search-id').innerHTML = recipeId;
+                document.getElementById('search-id').value = recipeId;
+                //document.getElementById('search-id').innerHTML = recipeId;
+                //document.getElementById('recipe-search-result').innerHTML = recipeId;
                 searchRecipe();
             }
             displayRecipes();
